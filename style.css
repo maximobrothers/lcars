@@ -1,0 +1,1267 @@
+/* =========================================================
+   LCARS - WESTMORELAND BIOLOGY
+   ========================================================= */
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   LCARS COLOR SYSTEM
+   ========================================================= */
+
+:root {
+
+    --lcars-black: #050505;
+    --lcars-dark: #0b0b0d;
+    --lcars-panel: #111116;
+
+    --lcars-orange: #f5a65b;
+    --lcars-peach: #f7c68b;
+
+    --lcars-purple: #9b82c9;
+    --lcars-purple-dark: #66558c;
+
+    --lcars-blue: #7ba7d8;
+    --lcars-blue-dark: #4d6e94;
+
+    --lcars-red: #c76b6b;
+
+    --lcars-text: #f1e9d8;
+    --lcars-muted: #aaa49a;
+
+    --lcars-line: #29292d;
+}
+
+
+/* =========================================================
+   BASE
+   ========================================================= */
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at top right,
+            #16161c 0%,
+            #08080a 45%,
+            #030303 100%
+        );
+
+    color: var(--lcars-text);
+
+    letter-spacing: 0.04em;
+}
+
+
+/* =========================================================
+   LAYOUT
+   ========================================================= */
+
+.layout {
+
+    display: flex;
+
+    min-height: 100vh;
+
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.sidebar {
+
+    width: 270px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #101014 0%,
+            #070709 100%
+        );
+
+    border-right: 4px solid var(--lcars-orange);
+
+    padding: 25px 18px;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    height: 100vh;
+
+    z-index: 1500;
+
+    overflow-y: auto;
+
+}
+
+
+/* =========================================================
+   BRAND
+   ========================================================= */
+
+.brand {
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 18px;
+
+    padding-bottom: 20px;
+
+    border-bottom: 2px solid var(--lcars-line);
+
+}
+
+
+.brand-logo {
+
+    width: 180px;
+
+    max-width: 100%;
+
+    filter:
+        drop-shadow(
+            0 0 12px
+            rgba(245, 166, 91, 0.25)
+        );
+
+}
+
+
+/* =========================================================
+   LCARS BRAND LABEL
+   ========================================================= */
+
+.lcars-label {
+
+    color: var(--lcars-orange);
+
+    font-size: 0.85rem;
+
+    font-weight: bold;
+
+    letter-spacing: 0.18em;
+
+    line-height: 1.5;
+
+    margin-bottom: 35px;
+
+    padding-left: 10px;
+
+}
+
+.lcars-label span {
+
+    display: block;
+
+    color: var(--lcars-purple);
+
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.nav-section {
+
+    margin-bottom: 35px;
+
+}
+
+
+.section-title {
+
+    font-size: 0.65rem;
+
+    letter-spacing: 0.18em;
+
+    color: var(--lcars-muted);
+
+    margin:
+
+        0
+
+        0
+
+        12px
+
+        12px;
+
+}
+
+
+/* NAV LINK */
+
+.nav-link {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 0;
+
+    color: var(--lcars-text);
+
+    text-decoration: none;
+
+    height: 48px;
+
+    margin-bottom: 10px;
+
+    background: #1a1a1e;
+
+    border-radius:
+
+        0
+
+        24px
+
+        24px
+
+        0;
+
+    overflow: hidden;
+
+    transition:
+
+        transform 0.2s ease,
+
+        background 0.2s ease;
+
+}
+
+
+.nav-link span {
+
+    padding-left: 18px;
+
+    font-size: 0.85rem;
+
+    font-weight: bold;
+
+    letter-spacing: 0.12em;
+
+}
+
+
+/* LCARS colored bar */
+
+.nav-bar {
+
+    width: 55px;
+
+    height: 100%;
+
+    background: var(--lcars-blue);
+
+    flex-shrink: 0;
+
+}
+
+
+/* Alternate colors */
+
+.nav-section:nth-of-type(3)
+.nav-link .nav-bar {
+
+    background: var(--lcars-purple);
+
+}
+
+
+/* HOVER */
+
+.nav-link:hover {
+
+    transform: translateX(5px);
+
+    background: #25252a;
+
+}
+
+
+/* ACTIVE */
+
+.nav-link.active {
+
+    background: var(--lcars-orange);
+
+    color: #090909;
+
+}
+
+
+.nav-link.active .nav-bar {
+
+    background: var(--lcars-peach);
+
+}
+
+
+/* EXTERNAL */
+
+.nav-link.external .nav-bar {
+
+    background: var(--lcars-purple);
+
+}
+
+
+/* =========================================================
+   SIDEBAR FOOTER
+   ========================================================= */
+
+.sidebar-footer {
+
+    position: absolute;
+
+    left: 18px;
+    right: 18px;
+    bottom: 25px;
+
+    border-top: 2px solid var(--lcars-line);
+
+    padding-top: 15px;
+
+    font-size: 0.65rem;
+
+    letter-spacing: 0.15em;
+
+    color: var(--lcars-muted);
+
+}
+
+
+.sidebar-footer div:last-child {
+
+    color: var(--lcars-orange);
+
+    margin-top: 7px;
+
+}
+
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.content {
+
+    margin-left: 270px;
+
+    width: calc(100% - 270px);
+
+    min-height: 100vh;
+
+    padding: 35px 45px 60px;
+
+    overflow-y: auto;
+
+}
+
+
+/* =========================================================
+   LCARS HEADER
+   ========================================================= */
+
+.lcars-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    min-height: 65px;
+
+    margin-bottom: 30px;
+
+}
+
+
+/* LEFT */
+
+.header-left {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+}
+
+
+.header-code {
+
+    display: flex;
+
+    align-items: center;
+
+    height: 42px;
+
+    padding: 0 20px;
+
+    background: var(--lcars-purple);
+
+    color: #080808;
+
+    font-weight: bold;
+
+    font-size: 0.75rem;
+
+    letter-spacing: 0.12em;
+
+    border-radius:
+
+        21px
+
+        0
+
+        0
+
+        21px;
+
+}
+
+
+.header-title {
+
+    font-size: 1.15rem;
+
+    font-weight: bold;
+
+    letter-spacing: 0.12em;
+
+}
+
+
+/* RIGHT */
+
+.header-right {
+
+    background: var(--lcars-orange);
+
+    color: #080808;
+
+    padding:
+
+        13px
+
+        25px;
+
+    border-radius:
+
+        0
+
+        25px
+
+        25px
+
+        0;
+
+    font-size: 0.75rem;
+
+    font-weight: bold;
+
+    letter-spacing: 0.15em;
+
+}
+
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+
+.card {
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #151519,
+            #0d0d10
+        );
+
+    border:
+
+        1px solid
+
+        var(--lcars-line);
+
+    border-left:
+
+        7px solid
+
+        var(--lcars-orange);
+
+    padding: 30px;
+
+    margin-bottom: 30px;
+
+    border-radius:
+
+        0
+
+        25px
+
+        25px
+
+        0;
+
+    box-shadow:
+
+        0 10px 30px
+        rgba(0, 0, 0, 0.25);
+
+}
+
+
+/* =========================================================
+   CARD HEADER
+   ========================================================= */
+
+.card-header {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 25px;
+
+    color: var(--lcars-muted);
+
+    font-size: 0.7rem;
+
+    font-weight: bold;
+
+    letter-spacing: 0.18em;
+
+}
+
+
+/* COLORED TAB */
+
+.card-tab {
+
+    width: 70px;
+
+    height: 15px;
+
+    border-radius:
+
+        0
+
+        10px
+
+        10px
+
+        0;
+
+}
+
+
+/* TAB COLORS */
+
+.card-tab.orange {
+
+    background: var(--lcars-orange);
+
+}
+
+.card-tab.purple {
+
+    background: var(--lcars-purple);
+
+}
+
+.card-tab.blue {
+
+    background: var(--lcars-blue);
+
+}
+
+
+/* =========================================================
+   HEADINGS
+   ========================================================= */
+
+h1 {
+
+    font-size: 2rem;
+
+    font-weight: normal;
+
+    color: var(--lcars-orange);
+
+    letter-spacing: 0.08em;
+
+    margin-bottom: 20px;
+
+}
+
+
+h2 {
+
+    font-size: 1.4rem;
+
+    font-weight: normal;
+
+    color: var(--lcars-blue);
+
+    margin-bottom: 20px;
+
+    letter-spacing: 0.08em;
+
+}
+
+
+/* =========================================================
+   PARAGRAPHS
+   ========================================================= */
+
+p {
+
+    margin: 15px 0;
+
+    font-size: 1.05rem;
+
+    line-height: 1.7;
+
+    color: #d5d0c7;
+
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+
+    text-align: center;
+
+    border-left-color: var(--lcars-orange);
+
+}
+
+
+.hero-logo {
+
+    max-width: 500px;
+
+    width: 100%;
+
+    margin: 10px auto 20px;
+
+    display: block;
+
+}
+
+
+.hero-divider {
+
+    width: 75%;
+
+    height: 4px;
+
+    background:
+
+        linear-gradient(
+            to right,
+            transparent,
+            var(--lcars-purple),
+            var(--lcars-orange),
+            transparent
+        );
+
+    margin: 20px auto;
+
+}
+
+
+.hero-text {
+
+    color: var(--lcars-peach);
+
+    font-size: 0.9rem;
+
+    font-weight: bold;
+
+    letter-spacing: 0.15em;
+
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.buttons {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+
+    margin-top: 25px;
+
+}
+
+
+.btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 170px;
+
+    padding:
+
+        14px
+
+        25px;
+
+    color: #090909;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    font-size: 0.8rem;
+
+    letter-spacing: 0.12em;
+
+    border-radius:
+
+        0
+
+        22px
+
+        22px
+
+        0;
+
+    transition:
+
+        transform 0.2s ease,
+
+        filter 0.2s ease;
+
+}
+
+
+.btn:hover {
+
+    transform: translateX(6px);
+
+    filter: brightness(1.15);
+
+}
+
+
+.youtube {
+
+    background: var(--lcars-red);
+
+    color: #fff;
+
+}
+
+
+.twitch {
+
+    background: var(--lcars-purple);
+
+}
+
+.bones {
+   background: var(--lcars-red);
+
+    color: #fff;
+}
+
+/* =========================================================
+   CALENDAR
+   ========================================================= */
+.calendar-container {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 0 18px 18px 0;
+}
+
+.calendar-container iframe {
+    display: block;
+    width: 100%;
+    min-height: 700px;
+    border: 0;
+}
+
+/* =========================================================
+   SPLIT IMAGE AREA
+   ========================================================= */
+
+.split-container {
+
+    display: grid;
+
+    grid-template-columns:
+
+        repeat(2, 1fr);
+
+    gap: 25px;
+
+    width: 100%;
+
+    margin-bottom: 30px;
+
+}
+
+
+.image-panel {
+
+    min-height: 200px;
+
+    background: #101014;
+
+    border-left: 7px solid var(--lcars-purple);
+
+    border-radius:
+
+        0
+
+        25px
+
+        25px
+
+        0;
+
+    overflow: hidden;
+
+    position: relative;
+
+}
+
+
+.image-panel:nth-child(2) {
+
+    border-left-color: var(--lcars-blue);
+
+}
+
+
+.image-panel-label {
+
+    position: absolute;
+
+    top: 15px;
+
+    left: 20px;
+
+    z-index: 2;
+
+    font-size: 0.65rem;
+
+    letter-spacing: 0.15em;
+
+    color: var(--lcars-muted);
+
+}
+
+
+.split-image {
+
+    display: block;
+
+    width: 100%;
+
+    height: 100%;
+
+    min-height: 200px;
+
+    object-fit: cover;
+
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.lcars-footer {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-top: 40px;
+
+    color: var(--lcars-muted);
+
+    font-size: 0.6rem;
+
+    letter-spacing: 0.14em;
+
+}
+
+
+.footer-bar {
+
+    height: 12px;
+
+    width: 100px;
+
+    background: var(--lcars-orange);
+
+    border-radius:
+
+        0
+
+        8px
+
+        8px
+
+        0;
+
+}
+
+
+.footer-bar.small {
+
+    width: 40px;
+
+    background: var(--lcars-purple);
+
+}
+
+
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
+
+#menu-toggle {
+
+    display: none;
+
+}
+
+
+.menu-icon {
+
+    display: none;
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    /* HAMBURGER */
+
+    .menu-icon {
+
+        display: flex;
+
+        flex-direction: column;
+
+        justify-content: space-between;
+
+        width: 34px;
+
+        height: 26px;
+
+        position: fixed;
+
+        top: 20px;
+
+        left: 20px;
+
+        z-index: 2000;
+
+        cursor: pointer;
+
+        padding: 3px;
+
+        background: var(--lcars-orange);
+
+        border-radius:
+            0
+            8px
+            8px
+            0;
+
+    }
+
+
+    .menu-icon span {
+
+        height: 3px;
+
+        width: 100%;
+
+        background: #080808;
+
+        border-radius: 2px;
+
+    }
+
+
+    /* SIDEBAR */
+
+    .sidebar {
+
+        width: 270px;
+
+        height: 100dvh;
+
+        max-height: 100dvh;
+
+        box-sizing: border-box;
+
+        overflow-y: auto;
+
+        overflow-x: hidden;
+
+        -webkit-overflow-scrolling: touch;
+
+        transform: translateX(-100%);
+
+        transition:
+            transform 0.3s ease;
+
+        z-index: 1500;
+
+    }
+
+
+    #menu-toggle:checked
+    + .menu-icon
+    + .sidebar {
+
+        transform: translateX(0);
+
+    }
+
+
+    /* SIDEBAR NAVIGATION */
+
+    .nav {
+
+        padding-bottom: 40px;
+
+    }
+
+
+    /* CONTENT */
+
+    .content {
+
+        margin-left: 0;
+
+        width: 100%;
+
+        padding:
+            80px
+            20px
+            40px;
+
+    }
+
+
+    /* HEADER */
+
+    .lcars-header {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 15px;
+
+    }
+
+
+    .header-left {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 8px;
+
+    }
+
+
+    .header-code {
+
+        border-radius:
+            0
+            18px
+            18px
+            0;
+
+    }
+
+
+    .header-right {
+
+        align-self: flex-end;
+
+        border-radius:
+            0
+            18px
+            18px
+            0;
+
+    }
+
+
+    /* CARDS */
+
+    .card {
+
+        padding: 22px;
+
+    }
+
+
+    h1 {
+
+        font-size: 1.5rem;
+
+    }
+
+
+    /* IMAGES */
+
+    .split-container {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    /* FOOTER */
+
+    .lcars-footer {
+
+        flex-wrap: wrap;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 500px) {
+
+    .content {
+
+        padding-left: 12px;
+
+        padding-right: 12px;
+
+    }
+
+
+    .card {
+
+        padding: 18px;
+
+        border-left-width: 5px;
+
+    }
+
+
+    .hero-logo {
+
+        max-width: 100%;
+
+    }
+
+
+    .hero-text {
+
+        font-size: 0.75rem;
+
+    }
+
+
+    .header-title {
+
+        font-size: 0.9rem;
+
+    }
+
+
+    .btn {
+
+        width: 100%;
+
+    }
+
+}
+
+/* =========================================================
+   MOBILE SIDEBAR FOOTER
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .sidebar-footer {
+
+        position: static;
+
+        margin:
+            20px
+            18px
+            0;
+
+        padding-top: 15px;
+
+        padding-bottom: 30px;
+
+    }
+
+}
